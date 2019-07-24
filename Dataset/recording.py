@@ -1,19 +1,29 @@
 from Tkinter import *
+import pyaudio as pa
+
 
 class App:
     def __init__(self, master):
         frame = Frame(master)
         frame.pack()
-        self.button = Button(frame, 
+        
+        self.start = Button(frame, 
                          text = "START",
-                         fg = "red",
-                         command = frame.quit)
-        self.button.pack(side=LEFT)
-        self.slogan = Button(frame,
-                         text = "STOP",
                          fg = "green",
-                         command=self.write_slogan)
-        self.slogan.pack(side=LEFT)
+                         command = self.start_recording)
+        self.start.pack(side=LEFT)
+        
+        self.stop = Button(frame,
+                         text = "STOP",
+                         fg = "red",
+                         command=self.stop_recording)
+        self.stop.pack(side=LEFT)
+
+    def stop_recording(self):
+        print("stop")
+
+    def start_recording(self):
+        print("start")
     
 
 root = Tk()
